@@ -20,8 +20,6 @@ class Webpage(models.Model):
 
     def __str__(self):
         return self.urls
-    
-
 
 class AccessRecord(models.Model):
     name = models.ForeignKey(Webpage, on_delete=models.CASCADE)

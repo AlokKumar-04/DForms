@@ -22,4 +22,6 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('topic/', topic, name='topic'),
     path('webpage/', webpage, name='webpage'),
+    path('topicModel/', topicModel, name='topicModel'),
+    path('webM/', webM, name='webM'),
 ]

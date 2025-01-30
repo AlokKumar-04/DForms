@@ -28,6 +28,23 @@ def topic(request):
 
 
 
+def topicModel(request):
+    ETMFO = TopicMForm()  
+    d = {'ETMFO': ETMFO}
+
+    if request.method == 'POST':
+        ETO = TopicMForm(request.POST)
+        if ETO.is_valid():
+            ETO.save()
+            return HttpResponse('Topic is created')
+        else:
+            return HttpResponse('This topic is already present')
+
+    return render(request, 'topicModel.html', d)
+
+
+
+
 def webpage(request):
 
     EWFO = WebpageForm()
@@ -53,3 +70,18 @@ def webpage(request):
             return HttpResponse('Data is not valid')
 
     return render(request, 'web.html', d)
+
+
+
+def webM(request):
+    EWMFO = WebpageMForm()
+    d = {'EWMFO' : EWMFO}
+
+    if request.method == 'POST':
+        EFO = WebpageMForm(request.POST)
+        if EFO.is_valid:
+            EFO.save()
+            return HttpResponse('Web is created')
+        else:
+            return HttpResponse('This web is already present')
+    return render(request, 'webM.html', d)
